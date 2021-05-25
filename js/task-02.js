@@ -12,8 +12,7 @@ const items = [];
 ingredients.forEach(ingredient => {
     const item = document.createElement('li');
     item.textContent = ingredient;
-    items.push(item.outerHTML);    
+    items.push(item);    
 });
 
-const stringItems = items.join('');
-list.insertAdjacentHTML("afterbegin", stringItems);
+list.append(...items);

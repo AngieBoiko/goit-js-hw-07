@@ -17,26 +17,9 @@ const images = [
 ];
 
 const gallery = document.querySelector('#gallery');
-const imagesArray = [];
+const createMarkup = ({ url, alt })=>{
+  return `<li class='gallery-item'><img src="${url}" alt='${alt}' class='gallery-img'></img></li>`;
+}
+const markup= images.map(createMarkup).join('');
+gallery.insertAdjacentHTML('afterbegin', markup);
 
-images.forEach(image => {
-    const item = document.createElement('li');
-    const imageItem = document.createElement('img');
-    imageItem.setAttribute('src', `${image.url}`);
-    imageItem.setAttribute('alt', `${image.alt}`);
-    item.appendChild(imageItem);
-    imagesArray.push(item.outerHTML);
-});
-
-const imagesToString= imagesArray.join('');
-gallery.insertAdjacentHTML('afterbegin', imagesToString);
-
-const galleryImg = document.querySelectorAll('img');
-galleryImg.forEach(item => {
-    item.classList.add('gallery-img');
-});
-
-const galleryItem = document.querySelectorAll('li');
-galleryItem.forEach(item => {
-    item.classList.add('gallery-item');
-})

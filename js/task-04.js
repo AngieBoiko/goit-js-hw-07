@@ -14,11 +14,9 @@ const counter = {
 
 incrementBtn.addEventListener('click', function () {
     counter.incrementFunc();
-    console.log(counter.value);
     value.textContent = counter.value;
 } );
 decrementBtn.addEventListener('click', function () {
     counter.decrementFunc();
-    console.log(counter.value);
     value.textContent = counter.value;
 } );
